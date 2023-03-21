@@ -1,0 +1,27 @@
+@startuml
+class packege.ImageCollection {
+- String filetopic
+- Image bi
++ Iterator getIterator()
+}
+class packege.ImageCollection.ImageIterator {
+- int current
+- Image getImage(int)
++ boolean hasNext(int)
++ Object next()
++ Object preview()
+}
+interface packege.Iterator {
++ boolean hasNext(int)
++ Object next()
++ Object preview()
+}
+interface packege.Aggregate {
++ Iterator getIterator()
+}
+
+
+packege.Aggregate <|.. packege.ImageCollection
+packege.ImageCollection +.. packege.ImageCollection.ImageIterator
+packege.Iterator <|.. packege.ImageCollection.ImageIterator
+@enduml

@@ -5,7 +5,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab4.HelloController">
+<VBox alignment="CENTER" prefHeight="331.0" prefWidth="307.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.lab4.HelloController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -14,5 +14,10 @@
       <children>
           <Button onAction="#onHelloButtonClick" text="--&gt;" />
             <Button mnemonicParsing="false" onAction="#onButton2" text="&lt;--" />
+         <Button mnemonicParsing="false" onAction="#onStart" text="start" />
+         <Button layoutX="83.0" layoutY="10.0" mnemonicParsing="false" onAction="#onPause" text="pause" />
+         <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" onAction="#onStop" text="stop" />
       </children></HBox>
+   <TextField fx:id="textField" />
+   <Button mnemonicParsing="false" text="Установить время задержки" onAction="#onSetTime"/>
 </VBox>
