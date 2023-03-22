@@ -10,14 +10,14 @@
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
    <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
-   <HBox prefHeight="100.0" prefWidth="200.0">
+   <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
-          <Button onAction="#onHelloButtonClick" text="--&gt;" />
-            <Button mnemonicParsing="false" onAction="#onButton2" text="&lt;--" />
+          <Button onAction="#onHelloButtonClick" text="→" />
+            <Button mnemonicParsing="false" onAction="#onButton2" text="←" />
          <Button mnemonicParsing="false" onAction="#onStart" text="start" />
          <Button layoutX="83.0" layoutY="10.0" mnemonicParsing="false" onAction="#onPause" text="pause" />
          <Button layoutX="125.0" layoutY="10.0" mnemonicParsing="false" onAction="#onStop" text="stop" />
       </children></HBox>
    <TextField fx:id="textField" />
-   <Button mnemonicParsing="false" text="Установить время задержки" onAction="#onSetTime"/>
+   <Button mnemonicParsing="false" onAction="#onSetTime" text="Установить время задержки" />
 </VBox>
