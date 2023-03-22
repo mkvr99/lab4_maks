@@ -22,7 +22,7 @@ public class HelloController implements Initializable {
     public ImageView imageView;
     public TextField textField;
 
-    public int i = 2;
+    public int i = 2000;
 
     @FXML
     public void onHelloButtonClick(ActionEvent event) { imageView.setImage((Image) iter_main.next()); }
@@ -53,7 +53,7 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timeline.setCycleCount(Timeline.INDEFINITE); //кол-во повторов
-        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(i), new EventHandler<ActionEvent>() {
+        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(i), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if (iter_main.hasNext(1))
