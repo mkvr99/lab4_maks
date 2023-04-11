@@ -6,14 +6,21 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.Image;
+import javafx.stage.FileChooser;
 import packege.ImageCollection;
 import packege.Iterator;
 import javafx.util.Duration;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 
 public class HelloController implements Initializable {
     public Timeline timeline = new Timeline();
@@ -22,7 +29,9 @@ public class HelloController implements Initializable {
     public ImageView imageView;
     public TextField textField;
 
-    public int i = 2000;
+    public FileChooser fileChooser;
+
+    public int i = 1;
 
     @FXML
     public void onHelloButtonClick(ActionEvent event) { imageView.setImage((Image) iter_main.next()); }
@@ -45,20 +54,35 @@ public class HelloController implements Initializable {
 
 
     public void onSetTime(ActionEvent event) {
-        i = Integer.parseInt(textField.getText());
-        timeline.setCycleCount(i);
 
+        timeline.setDelay(Duration.seconds(Integer.parseInt(textField.getText())));
     }
+
+    public void onChouseFile(ActionEvent event) {
+        fileChooser = new FileChooser();
+        File file = fileChooser.showOpenDialog(imageView.getScene().getWindow());
+        String stream = file.getParentFile().toString();
+        imgs.setImagePath(String.valueOf(stream));
+    }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         timeline.setCycleCount(Timeline.INDEFINITE); //кол-во повторов
-        timeline.getKeyFrames().add(new KeyFrame(Duration.millis(i), new EventHandler<ActionEvent>() {
+        timeline.getKeyFrames().add(new KeyFrame(Duration.seconds(5), new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 if (iter_main.hasNext(1))
                     imageView.setImage((Image) iter_main.next());
+
+
             }
         }));
     }
+
+
+
 }
+
+

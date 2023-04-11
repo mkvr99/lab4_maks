@@ -5,18 +5,25 @@ import java.nio.file.Paths;
 
 public class ImageCollection implements Aggregate {
     private String filetopic;
-    private Image bi;
+
+    private String directory = "/Users/maksim/Desktop/Vuz/lab4/Desktop/VuzWork/java/lab4/src/main/resources/img/";
     public ImageCollection(String filetopic) {
         this.filetopic = filetopic;
     }
-    private class ImageIterator implements Iterator{
 
+    public void setImagePath(String path){
+        this.directory = path + "/";
+    }
+
+    private class ImageIterator implements Iterator{
         private int current = 0;
 
+
         private Image getImage(int iterator){
-            String filename = Paths.get("src/main/resources/img/"+ filetopic + iterator +".png").toUri().toString();
+            String filename = Paths.get(directory + filetopic + iterator +".png").toUri().toString();
             return new Image(filename);
         }
+
 
         @Override
         public boolean hasNext(int i) {
